@@ -6,3 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+include_recipe 'chef_client'
+include_recipe 'ntp'
+include_recipe 'apt'
