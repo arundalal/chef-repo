@@ -1,4 +1,7 @@
 # See https://docs.chef.io/config_rb_knife.html for more information on knife configuration options
+cookbook_copyright "Arun Dalal"
+cookbook_license   "apachev2"
+cookbook_email     "cookbooks@arundalal.org"
 
 current_dir = File.dirname(__FILE__)
 log_level                :info
