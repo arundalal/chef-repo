@@ -1009,11 +1009,13 @@ NameVirtualHost *:80
 #    CustomLog logs/dummy-host.example.com-access_log common
 #</VirtualHost>
 
-<VirtualHost *:<%= @port %>>
-    ServerAdmin <%= @serveradmin %>
-    DocumentRoot /var/www/<%= @document_root %>
-    ServerName <%= @servername %>
-    ErrorLog logs/<%= @servername %>-error_log
-    CustomLog logs/<%= @servername %>-access_log common
+<% @sites_name.each do |site| -%>
+<% data = Chef::DataBagItem.load("sites", site) -%>
+<VirtualHost *:<%= data["port"] %>>
+    ServerAdmin <%= data["serveradmin"].to_s %>
+    DocumentRoot /var/www/<%= data["servername"] %>
+    ServerName <%= data["servername"].to_s %>
+    ErrorLog logs/<%= data["servername"] %>-error_log
+    CustomLog logs/<%= data["servername"] %>-access_log common
 </VirtualHost>
-
+<% end -%>

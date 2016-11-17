@@ -1,0 +1,6 @@
+{
+  "id" : "example.info",
+  "port" : "80",
+  "servername" : "example.info",
+  "serveradmin" : "webmaster@example.info"
+}
